@@ -1,5 +1,8 @@
 # Plover Better RTF
 
+![pypi](https://img.shields.io/pypi/v/plover-better-rtf)
+![python](https://img.shields.io/pypi/pyversions/plover-better-rtf)
+
 Plover plugin for better RTF dictionary handling. Powered by
 [rtfcre](https://github.com/sammdot/rtfcre).
 
