@@ -50,7 +50,10 @@ class RtfDictionary(StenoDictionary):
 
   @property
   def reverse(self):
-    return self._rtf_dict.translation_to_strokes
+    return {
+      translation: [tuple(stroke.split(STROKE_DELIMITER)) for stroke in strokes]
+      for (translation, strokes) in self._rtf_dict.translation_to_strokes.items()
+    }
 
   @reverse.setter
   def reverse(self, new_val):
@@ -60,4 +63,7 @@ class RtfDictionary(StenoDictionary):
     self._rtf_dict = rtfcre.RtfDictionary()
 
   def reverse_lookup(self, translation):
-    return self._rtf_dict.reverse_lookup(translation)
+    return {
+      tuple(stroke.split(STROKE_DELIMITER))
+      for stroke in self._rtf_dict.reverse_lookup(translation)
+    }
