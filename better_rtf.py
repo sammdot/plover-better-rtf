@@ -42,7 +42,10 @@ class RtfDictionary(StenoDictionary):
 
   @property
   def _dict(self):
-    return self._rtf_dict.stroke_to_translation
+    return {
+      stroke.split(STROKE_DELIMITER): translation
+      for (stroke, translation) in self._rtf_dict.stroke_to_translation.items()
+    }
 
   @_dict.setter
   def _dict(self, new_val):
