@@ -65,6 +65,9 @@ class RtfDictionary(StenoDictionary):
   def clear(self):
     self._rtf_dict = rtfcre.RtfDictionary()
 
+  def lookup(self, steno):
+    return self._rtf_dict.lookup(STROKE_DELIMITER.join(steno))
+
   def reverse_lookup(self, translation):
     return {
       tuple(stroke.split(STROKE_DELIMITER))
